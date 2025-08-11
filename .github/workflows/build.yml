@@ -17,13 +17,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          - name: Install dependencies
-  run: |
-    sudo apt-get update
-    sudo apt-get install -y dpkg-dev fakeroot perl git wget unzip build-essential
-    wget https://github.com/ProcursusTeam/ldid/releases/download/v2.1.5/ldid_linux_x86_64
-    chmod +x ldid_linux_x86_64
-    sudo mv ldid_linux_x86_64 /usr/local/bin/ldid
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev fakeroot perl git wget unzip
+          wget https://github.com/ProcursusTeam/ldid/releases/latest/download/ldid_linux_x86_64
+          chmod +x ldid_linux_x86_64
+          sudo mv ldid_linux_x86_64 /usr/local/bin/ldid
+
       - name: Install Theos
         run: |
           git clone --recursive https://github.com/theos/theos.git $HOME/theos
